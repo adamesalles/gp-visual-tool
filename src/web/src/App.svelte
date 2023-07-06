@@ -370,7 +370,7 @@
       <!-- Input to kernel parameters -->
       <div id="kernel-params">
         {#each kernel.params as param, i}
-          <label for="param{i}"><Katex>{kernel.params_names[i]}</Katex></label>
+          <label for="param{i}"><Katex>{kernel.params_names[i]}</Katex>: {param}</label>
           <input
             type="range"
             id="param{i}"

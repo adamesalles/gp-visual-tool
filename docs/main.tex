@@ -101,7 +101,11 @@
     GP Visual Tool is called to be a system for the interactive modeling, fitting and interpreting of \highlight{Gaussian processes}.
     \end{block}\vspace*{1cm}
 
-    TODO: Overall image
+    \begin{figure}[H]
+        \centering
+        \includegraphics[height=.4\textheight]{imgs/overall.png}
+        \caption{Overall architecture of the system.}
+    \end{figure}
     
     It allows the user to \highlight{rigorously} specify \highlight{a model} by choosing different sets of \highlight{hyperparameters}. 
 
@@ -121,54 +125,158 @@ Typically, \highlight{Gaussian processes} (GPs) can be seen as a generalization 
 \end{frame}
 
 \begin{frame}[c]{\highlight{Means} and \highlight{Kernels}}
-    
+    In order to define our \textit{priors} distributions, we need to specify the \highlight{mean} and \highlight{kernel} functions. The \highlight{mean} function is usually set to zero, but the \highlight{kernel} function is a bit more complicated.
+
+    There are some properties of kernels:
+    \begin{itemize}
+        \item \highlight{Symmetry}: $k(x, x') = k(x', x)$;
+        \item \highlight{Positive definiteness}: $\sum_{i=1}^n \sum_{j=1}^n c_i c_j k(x_i, x_j) \geq 0$ for any $n \in \bN$, $c_1, \cdots, c_n \in \bR$ and $x_1, \cdots, x_n \in \bR$;
+        \item \highlight{Stationarity}: $k(x, x') = k(x - x')$;
+        \item \highlight{Isotropy}: $k(x, x') = k(\|x - x'\|)$.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[c]{Finding the \highlight{\textit{posterior} distribution}}
-    
+    Fitting a GP to a dataset is equivalent to finding the \highlight{\textit{posterior} distribution} of $f$ given $\bfy$ and $\bfx$. This is done by using \highlight{Bayes' theorem}:
+
+    \begin{align*}
+        p(\bff \mid \bfy, \bfx) &= \frac{p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx)}{p(\bfy \mid \bfx)}\\
+        &= \frac{p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx)}{\int p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx) d\bff}\\
+        &= \frac{p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx)}{\int p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx) d\bff}\\
+        &\propto p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx)\\
+        &\propto \cN(\bfy \mid \bff, \sigma^2 I) \cN(\bff \mid \bfx, k(\bfx, \bfx)).
+    \end{align*}
 \end{frame}
 
 \begin{frame}[c]{Some \highlight{approaches} to get \highlight{optimal} hyperparams}
+
+    As much of the work in the field of Bayesian statistics, we need to specify \highlight{priors} for our hyperparameters. This is usually done by using \highlight{Gamma} and \highlight{Inverse Gamma} distributions. But somewhere we have to choose the \highlight{hyperparameters}.
+
+    Maximizing the evidence is a common approach to get the \highlight{optimal} hyperparameters. This is done by maximizing the \highlight{log-marginal likelihood}:
+
+    \begin{align*}
+        \log p(\bfy \mid \bfx) &= \log \int p(\bfy \mid \bff, \bfx) p(\bff \mid \bfx) d\bff\\
+        &= \log \cN(\bfy \mid \bfx, k(\bfx, \bfx) + \sigma^2 I).
+    \end{align*}
+
     
 \end{frame}
 
 \begin{frame}[c]{Applications of \highlight{GPs}}
-    
+    As any Machine Learning model, GPs can be used in a wide range of applications. Some of them are:
+
+    \begin{itemize}
+        \item Emulating \highlight{expensive} functions;
+        \item \highlight{Regression} problems;
+        \item \highlight{Classification} problems;
+        \item \highlight{Time series} prediction;
+        \item Anomaly \highlight{detection};
+    \end{itemize}
+
+    And some of its \highlight{advantages} are:
+    \begin{itemize}
+        \item \highlight{Uncertainty} estimation;
+        \item \highlight{Interpretability};***
+        \item \highlight{Flexibility}.
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[c]{Life \highlight{could} be a dream.}
-    % Limitations
+    %Limitations
+
+    As one would say, \highlight{there is no free lunch}. GPs are not an exception. Some of its \highlight{limitations} are:
+
+    \begin{itemize}
+        \item \highlight{Computational} complexity;
+        \item \highlight{Memory} requirements;
+        \item \highlight{Non-convex} optimization;
+    \end{itemize}
 \end{frame}
 
 \begin{frame}[c]{Developing a \highlight{visual} tool}
-    
+    In order to understand the behavior of GPs, and each decision we make, a \highlight{visual} tool could be very useful. That's when Gaussian Processes Visual Tool comes in.
+
+    We want to, but not limited to:
+
+    \begin{itemize}
+        \item \highlight{Visualize} the behavior of GPs;
+        \item Add new observations \highlight{interactively};
+        \item Change the \highlight{kernel} function;
+        \item \highlight{Choose} hyperparameters in real-time;
+        \item Use our own custom \highlight{datasets};
+    \end{itemize}
 \end{frame}
 
-\begin{frame}[c]{Objectives \highlight{and} interactions.}
+\begin{frame}[c]{Technologies}
+    In order to develop this tool, we will use:
+
+    \begin{itemize}
+        \item \highlight{Python} and \highlight{Javascript} as programming languages;
+        \item \highlight{PyTorch} and \highlight{GPyTorch} to handle the GPs;
+        \item \highlight{Flask} to \highlight{serve} our application;
+        \item \highlight{D3.js} to deal with the \highlight{visualizations};
+        \item \highlight{Svelte} to give us a \highlight{reactive} frontend;
+    \end{itemize} 
     
 \end{frame}
 
 \begin{frame}[c]{Let's start \highlight{sampling}}
-    
+    Our main interactive visualization is a \highlight{line plot} of the current GP. We can \highlight{sample} from it by clicking on any point of the plot. This will add a new point to the plot, and a new sample to the \highlight{posterior} distribution. Clicking in an existing point will remove it from the plot, and the sample from the posterior.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{imgs/observing.png}
+        \includegraphics[width=0.39\textwidth]{imgs/observed.png}
+        \caption{Sampling from the GP.}
+    \end{figure}
+
+    Hovering, you can see the \highlight{marginal} distribution of the point.
 \end{frame}
 
-\begin{frame}[c]{Some \highlight{marginals} are not that bad\footnote{Marginal distributions :D}}
+% \begin{frame}[c]{Some \highlight{marginals} are not that bad\footnote{Marginal distributions :D}}
     
-\end{frame}
+% \end{frame}
 
 \begin{frame}[c]{Beyond \highlight{choosing} a kernel}
-    
+    As we said before, we can change the kernel function. We can also change the \highlight{hyperparameters} of the kernel. This will change the \highlight{behavior} of the GP.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.30\textwidth]{imgs/kernel-1.png}
+        \includegraphics[width=0.26\textwidth]{imgs/kernel-2.png}
+        \caption{Changing kernels.}
+    \end{figure}
+
 \end{frame}
 
-\begin{frame}[c]{Math is actually \highlight{important}}
+% \begin{frame}[c]{Math is actually \highlight{important}}
     
-\end{frame}
+% \end{frame}
 
 \begin{frame}[c]{Customization \highlight{is} allowed}
-    
+    \begin{multicols}{2}
+    You can also \highlight{upload} your own dataset. This will allow you to \highlight{play} with the tool, and see how the GP behaves with your own data. You can set the \highlight{noise} level, and axis \highlight{limits}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.30\textwidth]{imgs/simulation.png}
+        \caption{Simulation options}
+    \end{figure}
+    \end{multicols}
 \end{frame}
 
-\begin{frame}[c]{Time to \highlight{play}!}
+\begin{frame}[c]{Future \highlight{work}}
+    There are some things we would like to add to the tool:
+
+    \begin{itemize}
+        \item Add \highlight{more} visualizations, like a heatmap of the covariance matrix;
+        \item Add more \highlight{kernels};
+        \item Include \highlight{export} options;
+        \item Make it run on \highlight{GPU} by default;
+        \item Deploy it to a \highlight{server};
+        \item Add math \highlight{explanations} to the tool;
+        \item Operations between \highlight{kernels};
+    \end{itemize}
     
 \end{frame}
 
