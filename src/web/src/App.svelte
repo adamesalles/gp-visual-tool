@@ -1,26 +1,10 @@
 <script lang="ts">
-  import svelteLogo from "./assets/svelte.svg";
-  import viteLogo from "/vite.svg";
-  import Counter from "./lib/Counter.svelte";
   import Katex from "./lib/Katex.svelte";
+  import { mu, upper, lower } from "./stores.ts";
+  import * as d3 from "d3";
+  import { onMount } from "svelte";
 
-  function linspace(
-    start: number,
-    stop: number,
-    num: number,
-    endpoint = true
-  ): number[] {
-    const div = endpoint ? num - 1 : num;
-    const step = (stop - start) / div;
-    return Array.from({ length: num }, (_, i) => start + step * i);
-  }
-
-  function gaussian(x: number, mu: number, sigma: number): number {
-    return (
-      Math.exp(-Math.pow(x - mu, 2) / (2 * Math.pow(sigma, 2))) /
-      (sigma * Math.sqrt(2 * Math.PI))
-    );
-  }
+  import { gaussian, linspace } from "./funcs.ts";
 
   class Kernel {
     name: string;
@@ -47,13 +31,19 @@
     }
   }
 
-  let x_train = linspace(-5, 5, 10);
-  let y_train = x_train.map((x) => gaussian(x, 0, 1));
-  let x_test = linspace(-5, 5, 1000);
-  let mu: number[];
-  let lower: number[];
-  let upper: number[];
+  let x_train = [];
+  let y_train = [];
+  let x_test_start = -1;
+  let x_test_end = 1;
+  let amount_test_points = 1000;
+  $: x_test = linspace(x_test_start, x_test_end, amount_test_points);
   let kernel = new Kernel("RBF", [1, 1]);
+
+  let width;
+  let height;
+
+  let posterior;
+  const padding = 30;
 
   function getPosterior(
     x_train: number[],
@@ -78,31 +68,193 @@
 
   $: {
     getPosterior(x_train, y_train, x_test, kernel).then((res) => {
-      mu = res.mu;
-      lower = res.lower;
-      upper = res.upper;
+      $mu = res.mu;
+      $lower = res.lower;
+      $upper = res.upper;
     });
+  }
+
+  $: xScalePosterior = d3
+    .scaleLinear()
+    .domain([Math.min(...x_test), Math.max(...x_test)])
+    .range([0, width]);
+  $: yScalePosterior = d3
+    .scaleLinear()
+    .domain([Math.min(...$lower) - 1, Math.max(...$upper) + 1])
+    .range([height, 0]);
+
+  $: {
+    const svgPosterior = d3.select("#posterior");
+    const svgPosteriorG = d3.select("#posterior-g");
+
+    if (svgPosterior.node() == null) break $;
+
+    let valueLine = d3
+      .line()
+      .x((d: any) => xScalePosterior(d.x))
+      .y((d: any) => yScalePosterior(d.y));
+
+    let area = d3
+      .area()
+      .x((d: any) => xScalePosterior(d.x))
+      .y0((d: any) => yScalePosterior(d.y0))
+      .y1((d: any) => yScalePosterior(d.y1));
+
+    const xAxisPosterior = d3.axisBottom(xScalePosterior);
+    const yAxisPosterior = d3.axisLeft(yScalePosterior);
+
+    svgPosteriorG
+      .selectAll("path.line")
+      .data([
+        x_test.map((x, i) => {
+          return { x, y: $mu[i] };
+        }),
+      ])
+      .join("path")
+      .transition()
+      .duration(200)
+      .attr("class", "line")
+      .attr("d", (d) => valueLine(d))
+      .attr("fill", "none")
+      .attr("stroke", "red")
+      .attr("stroke-width", 2);
+
+    svgPosteriorG
+      .selectAll("path.area")
+      .data([
+        x_test.map((x, i) => {
+          return { x, y0: $lower[i], y1: $upper[i] };
+        }),
+      ])
+      .join("path")
+      .transition()
+      .duration(200)
+      .attr("class", "area")
+      .attr("d", (d) => area(d))
+      .attr("fill", "red")
+      .attr("opacity", 0.2);
+
+    svgPosteriorG
+      .selectAll("circle")
+      .data(
+        x_train.map((x, i) => {
+          return { x, y: y_train[i] };
+        })
+      )
+      .join("circle")
+      .attr("cx", (d) => xScalePosterior(d.x))
+      .attr("cy", (d) => yScalePosterior(d.y))
+      .attr("r", 5)
+      .attr("fill", "transparent")
+      .attr("stroke", "white")
+      .attr("stroke-width", 2)
+      .attr("i", (d, i) => i)
+      .on("click", (event, d) => {
+        event.stopPropagation();
+        removePoint(+d3.select(event.target).attr("i"));
+      });
+
+    svgPosteriorG
+      .select(".posterior-x-axis")
+      .attr("transform", `translate(0, ${height})`)
+      .call(xAxisPosterior);
+
+    svgPosteriorG.select(".posterior-y-axis").call(yAxisPosterior);
+  }
+
+  onMount(() => {
+    const svgPosterior = d3.select("#posterior");
+    width = svgPosterior.node().getBoundingClientRect().width - 2 * padding;
+    height = svgPosterior.node().getBoundingClientRect().height - 2 * padding;
+
+    svgPosterior.on("click", (event) => {
+      const [x, y] = d3.pointer(event);
+      x_train = [...x_train, xScalePosterior.invert(x - padding)];
+      y_train = [...y_train, yScalePosterior.invert(y - padding)];
+    });
+  });
+
+  function removePoint(index: number) {
+    x_train = x_train.filter((_, i) => i !== index);
+    y_train = y_train.filter((_, i) => i !== index);
   }
 </script>
 
 <main>
   <h1>Gaussian Processes Visual Tool</h1>
+
+  <div class="viz">
+    <svg id="posterior" width="100%" height="100%">
+      <g id="posterior-g" transform="translate({padding}, {padding})">
+        <g class="posterior-x-axis" />
+        <g class="posterior-y-axis" />
+      </g>
+    </svg>
+
+    <svg id="marginal" width="100%" height="100%" />
+
+    <div class="simulation-panel">
+      <!-- Button to reset x_train/y_train -->
+      <button
+        on:click={() => {
+          x_train = [];
+          y_train = [];
+        }}>Clear observations</button
+      >
+
+      <!-- Input to x_test_start and x_test_end -->
+      <div id="x-input">
+        <label for="x_test_start">$x$ start</label>
+        <input type="number" id="x_test_start" bind:value={x_test_start} />
+
+        <label for="x_test_end">$x$ end</label>
+        <input type="number" id="x_test_end" bind:value={x_test_end} />
+      </div>
+
+      <!-- Input to amount of x_test_points -->
+      <label for="x_test_points">Amount of $x$ points</label>
+      <input type="number" id="x_test_points" bind:value={amount_test_points} />
+    </div>
+  </div>
 </main>
 
-<style>
-  .logo {
-    height: 6em;
-    padding: 1.5em;
-    will-change: filter;
-    transition: filter 300ms;
+<style lang="scss">
+  main {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    padding: 2rem;
   }
-  .logo:hover {
-    filter: drop-shadow(0 0 2em #646cffaa);
+
+  .viz {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-rows: 2fr 1fr;
+    gap: 1rem;
+    // grid-row: 1fr 1fr;
   }
-  .logo.svelte:hover {
-    filter: drop-shadow(0 0 2em #ff3e00aa);
+
+  #x-input {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
   }
-  .read-the-docs {
-    color: #888;
+
+  // svg {
+  //   user-select: none;
+  // }
+
+  #posterior {
+    width: 100%;
+    height: 100%;
+    // background: red;
+  }
+
+  #marginal {
+    width: 100%;
+    height: 100%;
+    background: blue;
   }
 </style>

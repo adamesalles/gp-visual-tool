@@ -39,7 +39,13 @@ def predict():
     kernel = kernels_dict[kernel_name]()
     model = models.ExactGPModel(x_train, y_train, likelihood, kernel)
 
-    
+    hypers = {
+    'likelihood.noise_covar.noise': torch.tensor(1.),
+    'covar_module.base_kernel.lengthscale': torch.tensor(0.5),
+    'covar_module.outputscale': torch.tensor(2.),
+    }
+
+    model.initialize(**hypers)
 
     model.eval()
     likelihood.eval()
