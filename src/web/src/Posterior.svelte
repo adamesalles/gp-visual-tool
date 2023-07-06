@@ -10,7 +10,10 @@
 </script>
 
 <svg id="posterior" width="100%" height="100%">
-  <g id="posterior-g" {width} {height}
-  transform= "translate({padding}, {padding})"
+  <g
+    id="posterior-g"
+    {width}
+    {height}
+    transform="translate({padding}, {padding})"
   />
 </svg>

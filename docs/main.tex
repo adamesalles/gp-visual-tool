@@ -1,0 +1,188 @@
+\documentclass[xcolor=dvipsnames,t,aspectratio=169]{beamer} %t para ficar alinhado no topo do slide
+
+\usecolortheme{rose}
+\usecolortheme{dolphin}
+\usetheme{Boadilla}
+
+\usepackage[american]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+\usepackage{graphicx}
+\usepackage{listings} 
+\usepackage{xcolor}
+\usepackage{amsthm}
+\usepackage{url}
+\usepackage{textpos}
+\usepackage{amssymb}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage{float}
+\setbeamersize{text margin left=1cm,text margin right=1cm,} 
+\usepackage{pythonhighlight}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{dsfont}
+% \usepackage{natbib}
+
+\setlength{\parindent}{0pt} % coloca identação no zero
+
+\setbeamertemplate{itemize items}[circle]
+\setbeamertemplate{itemize subitem}{$\blacktriangleright$}
+
+\definecolor{fgv_dark_blue}{RGB}{1, 62, 125}
+\definecolor{fgv_light_blue}{RGB}{6, 143, 203}
+\setbeamercolor{normal text}{fg=fgv_dark_blue}\usebeamercolor*{normal text}
+
+
+\setbeamercolor{title}{fg=fgv_dark_blue}
+\setbeamercolor{frametitle}{fg=fgv_dark_blue}
+\setbeamercolor{structure}{fg=fgv_dark_blue}
+\setbeamercolor{author}{fg=fgv_light_blue}
+\setbeamercolor{footline}{fg=fgv_dark_blue} 
+
+\setbeamertemplate{footline}[frame number]
+\setbeamertemplate{navigation symbols}{}
+
+\definecolor{codegreen}{rgb}{0,0.6,0.2}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,  
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+\newcommand{\highlight}[1]{{\color{fgv_light_blue} #1}}
+
+\input{commands}
+% ---
+% Baobá
+\title{Gaussian Processes Visual Tool} %Published by {\color{fgv_light_blue} Stef van den Elzen} and {\color{fgv_light_blue}Jarke J. van Wijk} @ Eindhoven University of Technology}
+\author{Eduardo Adame Salles\\
+{\small\texttt{eduardo.salles@fgv.br}}\\
+\vspace{0.4cm} \hspace{0.2cm} \includegraphics[scale = 0.25]{emap_logo}}
+
+\date{{\color{fgv_dark_blue}  \textbf{Rio de Janeiro, Brazil}\\ \today}}
+
+\begin{document}
+
+\frame{\titlepage}
+
+\addtobeamertemplate{frametitle}{}{%
+\begin{textblock*}{200mm}(.88\textwidth,-.5cm)
+\includegraphics[scale=0.15]{emap_logo}
+\end{textblock*}}
+
+\begin{frame}[c]{Introduction}
+
+    \begin{block}{}
+    GP Visual Tool is called to be a system for the interactive modeling, fitting and interpreting of \highlight{Gaussian processes}.
+    \end{block}\vspace*{1cm}
+
+    TODO: Overall image
+    
+    It allows the user to \highlight{rigorously} specify \highlight{a model} by choosing different sets of \highlight{hyperparameters}. 
+
+\end{frame}
+
+\begin{frame}[c]{What is a \highlight{Gaussian process}?}
+
+Typically, \highlight{Gaussian processes} (GPs) can be seen as a generalization of the \highlight{Bayesian Regression}. Suppose we want to model a $f: \bR \to \bR$ as a GP. We would \highlight{define} it as following:
+
+\begin{align*}
+        \bfy \mid (\bff, \bfx) &\sim \cN(\bff, \sigma^2 I),\\
+        \bff \mid \bfx &\sim \gp(m, k) \equiv \cN(m(\bfx), k(\bfx, \bfx)), 
+    \end{align*}
+
+    for $\bfx = x_1, \cdots, x_N$, $\bfy =  y_1, \cdots, y_N$ and $\bff =  f(x_1), \cdots, f(x_N)$. We often refer to $m$ as the \highlight{mean} function (usually $m(x_i) = 0$) and $k$ as the \highlight{kernel} function. Our goal is to find the \highlight{\textit{posterior} distribution} of $f$.
+
+\end{frame}
+
+\begin{frame}[c]{\highlight{Means} and \highlight{Kernels}}
+    
+\end{frame}
+
+\begin{frame}[c]{Finding the \highlight{\textit{posterior} distribution}}
+    
+\end{frame}
+
+\begin{frame}[c]{Some \highlight{approaches} to get \highlight{optimal} hyperparams}
+    
+\end{frame}
+
+\begin{frame}[c]{Applications of \highlight{GPs}}
+    
+\end{frame}
+
+\begin{frame}[c]{Life \highlight{could} be a dream.}
+    % Limitations
+\end{frame}
+
+\begin{frame}[c]{Developing a \highlight{visual} tool}
+    
+\end{frame}
+
+\begin{frame}[c]{Objectives \highlight{and} interactions.}
+    
+\end{frame}
+
+\begin{frame}[c]{Let's start \highlight{sampling}}
+    
+\end{frame}
+
+\begin{frame}[c]{Some \highlight{marginals} are not that bad\footnote{Marginal distributions :D}}
+    
+\end{frame}
+
+\begin{frame}[c]{Beyond \highlight{choosing} a kernel}
+    
+\end{frame}
+
+\begin{frame}[c]{Math is actually \highlight{important}}
+    
+\end{frame}
+
+\begin{frame}[c]{Customization \highlight{is} allowed}
+    
+\end{frame}
+
+\begin{frame}[c]{Time to \highlight{play}!}
+    
+\end{frame}
+
+\begin{frame}[c]
+\frametitle{~}
+    
+    \begin{center}
+        {\Huge Thanks!}
+    \end{center}
+    
+\end{frame}
+
+
+
+
+
+\end{document} 
