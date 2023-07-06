@@ -38,7 +38,7 @@
           break;
         case "Polynomial":
           if (this.params.length == 0) {
-            this.params = [1, 1, 1];
+            this.params = [1, 1];
           }
           break;
         case "Cosine":
@@ -321,7 +321,7 @@
   }
 
   function changeKernelByName(name: string) {
-    kernel = new Kernel(name, [1, 1, 1]);
+    kernel = new Kernel(name, []);
   }
 </script>
 
@@ -356,7 +356,7 @@
         on:click={(event) => changeKernelByName(event.target.value)}
       >
         <option value="RBF">RBF</option>
-        <option value="Matern">Matern</option>
+        <!-- <option value="Matern">Matern</option> -->
         <option value="Periodic">Periodic</option>
         <option value="Linear">Linear</option>
         <option value="Polynomial">Polynomial</option>
@@ -387,7 +387,7 @@
       <button
         on:click={() => {
           kernel = new Kernel(kernel.name, kernel.params);
-        }}>Update kernel</button
+        }}>Force Kernel Update</button
       >
 
       
