@@ -12,6 +12,7 @@ CORS(app)
 
 likelihood = gpytorch.likelihoods.GaussianLikelihood()
 model = None
+x_train = None
 
 kernels_dict = {
     'RBF': gpytorch.kernels.RBFKernel,
@@ -25,7 +26,7 @@ kernels_dict = {
 @app.route('/api/predict', methods=['POST'])
 @cross_origin()
 def predict():
-    global likelihood, model
+    global likelihood, model, x_train
     data = flask.request.get_json(force=True)
     print(data)
     x_train = torch.tensor(data['x_train'])
@@ -39,13 +40,13 @@ def predict():
     kernel = kernels_dict[kernel_name]()
     model = models.ExactGPModel(x_train, y_train, likelihood, kernel)
 
-    hypers = {
-    'likelihood.noise_covar.noise': torch.tensor(1.),
-    'covar_module.base_kernel.lengthscale': torch.tensor(0.5),
-    'covar_module.outputscale': torch.tensor(2.),
-    }
+    # hypers = {
+    # 'likelihood.noise_covar.noise': torch.tensor(.2),
+    # 'covar_module.base_kernel.lengthscale': torch.tensor(0.5),
+    # 'covar_module.outputscale': torch.tensor(2.),
+    # }
 
-    model.initialize(**hypers)
+    # model.initialize(**hypers)
 
     model.eval()
     likelihood.eval()
@@ -60,6 +61,26 @@ def predict():
         'lower': lower.numpy().tolist(),
         'upper': upper.numpy().tolist(),
     })
+
+@app.route('/api/kernel', methods=['GET'])
+@cross_origin()
+def kernel():
+    global likelihood, model, x_train
+
+    if model is None:
+        return flask.jsonify({
+            'kernel_name': '',
+            'kernel_params': {},
+            'covariance_matrix': [[]],
+        })
+
+    covariance_matrix = model.covar_module(x_train).evaluate()
+
+    return flask.jsonify({
+        'covariance_matrix': covariance_matrix.detach().numpy().tolist(),
+    })
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)
