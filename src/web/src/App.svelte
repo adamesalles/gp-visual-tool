@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Katex from "./lib/Katex.svelte";
+  import Katex from 'svelte-katex';
   import type { Matrix } from "ml-matrix";
   import { mu, upper, lower, covariance_matrix } from "./stores.ts";
   import * as d3 from "d3";
@@ -59,26 +59,26 @@
         case "Linear":
           return `k(x, x') = ${this.params[0]} + ${this.params[1]} x x'`;
         case "Polynomial":
-          return `k(x, x') = (${this.params[0]} + ${this.params[1]} x x')^${this.params[2]}`;
+          return `k(x, x') = ${this.params[0]}(x x')^\{${this.params[1]}\}`;
         case "Cosine":
           return `k(x, x') = ${this.params[0]} \\cos \\left( \\frac{2 \\pi |x - x'|}{${this.params[1]}} \\right)`;
       }
     }
 
-    get params_names(){
+    get params_names() {
       switch (this.name) {
         case "RBF":
-          return ["σ", "l"];
+          return ["\\sigma", "l"];
         case "Matern":
-          return ["σ", "l", "ν"];
+          return ["\\sigma", "l", "ν"];
         case "Periodic":
-          return ["σ", "l", "p"];
+          return ["\\sigma", "l", "p"];
         case "Linear":
-          return ["σ", "l"];
+          return ["\\sigma", "l"];
         case "Polynomial":
-          return ["σ", "l", "d"];
+          return ["\\sigma", "p"];
         case "Cosine":
-          return ["σ", "l"];
+          return ["\\sigma", "l"];
       }
     }
   }
@@ -121,7 +121,7 @@
     }).then((res) => res.json());
   }
 
-  function getCovariance(): Promise<{covariance_matrix: number[][] }> {
+  function getCovariance(): Promise<{ covariance_matrix: number[][] }> {
     return fetch("http://localhost:5000/api/kernel", {
       method: "GET",
       headers: {
@@ -253,11 +253,11 @@
       const marginalMu = $mu[i];
       const marginalLower = $lower[i];
       const marginalUpper = $upper[i];
-      const marginalVar = (marginalUpper - marginalLower)/4;
+      const marginalVar = (marginalUpper - marginalLower) / 4;
 
       const marginalLowerPixel = yScalePosterior(marginalLower);
       const marginalUpperPixel = yScalePosterior(marginalUpper);
-      
+
       const yMarginalScale = d3
         .scaleLinear()
         .domain([marginalLower, marginalUpper])
@@ -325,9 +325,17 @@
   }
 </script>
 
+<svelte:head>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+    integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
+    crossorigin="anonymous"
+  />
+</svelte:head>
+
 <main>
   <h1>Gaussian Processes Visual Tool</h1>
-  
 
   <div class="viz">
     <svg id="posterior" width="100%" height="100%">
@@ -343,7 +351,10 @@
       <h3>Kernel options</h3>
       <!-- Dropdown to choose kernel -->
       <label for="kernel">Kernel</label>
-      <select id="kernel" on:click={(event) => changeKernelByName(event.target.value)}>
+      <select
+        id="kernel"
+        on:click={(event) => changeKernelByName(event.target.value)}
+      >
         <option value="RBF">RBF</option>
         <option value="Matern">Matern</option>
         <option value="Periodic">Periodic</option>
@@ -351,25 +362,35 @@
         <option value="Polynomial">Polynomial</option>
       </select>
 
+      <!-- Show math -->
+      <div id="kernel-math">
+        <Katex>{kernel.math}</Katex>
+      </div>
+
       <!-- Input to kernel parameters -->
       <div id="kernel-params">
         {#each kernel.params as param, i}
-          <label for="param{i}">{kernel.params_names[i]}</label>
+          <label for="param{i}"><Katex>{kernel.params_names[i]}</Katex></label>
           <input
-            type="number"
+            type="range"
             id="param{i}"
             bind:value={param}
             on:change={() => {
               kernel = new Kernel(kernel.name, kernel.params);
             }}
+            min="0.01"
+            max="5"
+            step="0.01"
           />
         {/each}
       </div>
       <button
-          on:click={() => {
-            kernel = new Kernel(kernel.name, kernel.params);
-          }}>Update kernel</button
-        >
+        on:click={() => {
+          kernel = new Kernel(kernel.name, kernel.params);
+        }}>Update kernel</button
+      >
+
+      
     </div>
 
     <div class="simulation-panel">
@@ -384,23 +405,51 @@
 
       <!-- Input to x_test_start and x_test_end -->
       <div id="x-input">
-        <label for="x_test_start">$x$ start</label>
-        <input type="number" id="x_test_start" bind:value={x_test_start} />
+        <label for="x_test_start">
+          <Katex>x</Katex> start: {x_test_start}</label
+        >
+        <input
+          type="range"
+          id="x_test_start"
+          bind:value={x_test_start}
+          min="-20"
+          max="0"
+          step="0.1"
+        />
 
-        <label for="x_test_end">$x$ end</label>
-        <input type="number" id="x_test_end" bind:value={x_test_end} />
+        <label for="x_test_end"><Katex>x</Katex> end: {x_test_end}</label>
+        <input
+          type="range"
+          id="x_test_end"
+          bind:value={x_test_end}
+          min="0"
+          max="20"
+          step="0.1"
+        />
       </div>
 
       <!-- Input to amount of x_test_points -->
-      <label for="x_test_points">Amount of $x$ points</label>
-      <input type="number" id="x_test_points" bind:value={amount_test_points} />
+      <label for="x_test_points"
+        >Amount of <Katex>x</Katex> points: {amount_test_points}</label
+      >
+      <input
+        type="range"
+        id="x_test_points"
+        bind:value={amount_test_points}
+        min="1"
+        max="2000"
+        step="1"
+      />
 
       <!-- Choose likelihood sigma -->
-      <label for="likelihood_sigma">Likelihood $\sigma$</label>
+      <label for="likelihood_sigma">Likelihood <Katex>\sigma</Katex>: {sigma}</label>
       <input
-        type="number"
+        type="range"
         id="likelihood_sigma"
         bind:value={sigma}
+        min="0.01"
+        max="1"
+        step="0.01"
       />
 
       <!-- Upload your csv -->
@@ -410,8 +459,7 @@
         id="csv"
         accept=".csv"
         on:change={() => {
-          const file = (document.getElementById("csv"))
-            .files[0];
+          const file = document.getElementById("csv").files[0];
           const reader = new FileReader();
           reader.onload = (e) => {
             updateTrainFromCsv(e.target.result);
@@ -423,7 +471,7 @@
     </div>
 
     <div class="description">
-      By Eduardo Adame. Powered with D3.js, Svelte and PyTorch. 
+      By Eduardo Adame. Powered with D3.js, Svelte and (G)PyTorch.
     </div>
   </div>
 </main>
@@ -446,17 +494,17 @@
     // grid-row: 1fr 1fr;
   }
 
-  #x-input {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
+  // #x-input {
+  //   display: flex;
+  //   flex-direction: row;
+  //   gap: 1rem;
+  // }
 
-  #kernel-params {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-  }
+  // #kernel-params {
+  //   display: flex;
+  //   flex-direction: row;
+  //   gap: 1rem;
+  // }
 
   // svg {
   //   user-select: none;

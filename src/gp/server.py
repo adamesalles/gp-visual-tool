@@ -23,6 +23,15 @@ kernels_dict = {
     'Cosine': gpytorch.kernels.CosineKernel,
 }
 
+kernel_params_keys = {
+    'RBF': ['lengthscale'],
+    'Matern': ['lengthscale', 'nu'],
+    'Periodic': ['lengthscale', 'period_length'],
+    'Linear': ['variance'],
+    'Polynomial': ['power'],
+    'Cosine': ['period_length'],
+}
+
 @app.route('/api/predict', methods=['POST'])
 @cross_origin()
 def predict():
@@ -32,21 +41,33 @@ def predict():
     x_train = torch.tensor(data['x_train'])
     y_train = torch.tensor(data['y_train'])
     x_test = torch.tensor(data['x_test'])
+    sigma = torch.tensor(data['sigma'])
     kernel_name = data['kernel_name']
     kernel_params = data['kernel_params']
     print(kernel_name, kernel_params, type(kernel_params))
     
     likelihood = gpytorch.likelihoods.GaussianLikelihood()
-    kernel = kernels_dict[kernel_name]()
+    if kernel_name not in kernels_dict:
+        return flask.jsonify({
+            'mu': [],
+            'lower': [],
+            'upper': [],
+        })
+    elif kernel_name == 'Polynomial':
+        kernel = kernels_dict[kernel_name](power=kernel_params[1])
+    else:
+        kernel = kernels_dict[kernel_name]()
+
     model = models.ExactGPModel(x_train, y_train, likelihood, kernel)
 
-    # hypers = {
-    # 'likelihood.noise_covar.noise': torch.tensor(.2),
-    # 'covar_module.base_kernel.lengthscale': torch.tensor(0.5),
-    # 'covar_module.outputscale': torch.tensor(2.),
-    # }
+    hypers = {
+    'likelihood.noise_covar.noise': sigma,
+    'covar_module.outputscale': kernel_params[0]
+    }
+    for i, key in enumerate(kernel_params_keys[kernel_name]):
+            hypers['covar_module.base_kernel.' + key] = kernel_params[i+1]
 
-    # model.initialize(**hypers)
+    model.initialize(**hypers)
 
     model.eval()
     likelihood.eval()
