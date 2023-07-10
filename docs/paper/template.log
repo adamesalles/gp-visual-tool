@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.19)  9 JUL 2023 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.19)  9 JUL 2023 23:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -187,6 +187,32 @@ Package: dsfont 1995/08/01 v0.1 Double stroke roman fonts
 ) (/usr/share/texmf-dist/tex/latex/psnfss/mathpazo.sty
 Package: mathpazo 2020/03/25 PSNFSS-v9.3 Palatino w/ Pazo Math (D.Puga, WaS) 
 \symupright=\mathgroup6
+) (/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count273
+\float@exts=\toks22
+\float@box=\box59
+\@float@everytoks=\toks23
+\@floatcapt=\box60
+) (/usr/share/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip59
+\subfigcapskip=\skip60
+\subfigcaptopadj=\dimen172
+\subfigbottomskip=\skip61
+\subfigcapmargin=\dimen173
+\subfiglabelskip=\skip62
+\c@subfigure=\count274
+\c@lofdepth=\count275
+\c@subtable=\count276
+\c@lotdepth=\count277
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(/usr/share/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip63
+\subfig@bottom=\skip64
 ) (../presentation/commands.tex) (/usr/share/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2023-02-07 v7.00v Hypertext links for LaTeX
  (/usr/share/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
@@ -220,11 +246,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
  (/usr/share/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count273
+\c@section@level=\count278
 )
-\@linkdim=\dimen172
-\Hy@linkcounter=\count274
-\Hy@pagecounter=\count275
+\@linkdim=\dimen174
+\Hy@linkcounter=\count279
+\Hy@pagecounter=\count280
  (/usr/share/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2023-02-07 v7.00v Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
@@ -234,7 +260,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (/usr/share/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count276
+\Hy@SavedSpaceFactor=\count281
  (/usr/share/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2023-02-07 v7.00v Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
@@ -247,21 +273,21 @@ Package hyperref Info: Plain pages OFF on input line 4192.
 Package hyperref Info: Backreferencing OFF on input line 4197.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4425.
-\c@Hy@tempcnt=\count277
+\c@Hy@tempcnt=\count282
  (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip16
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4763.
-\XeTeXLinkMargin=\dimen173
+\XeTeXLinkMargin=\dimen175
  (/usr/share/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
  (/usr/share/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count278
-\Field@Width=\dimen174
-\Fld@charsize=\dimen175
+\Fld@menulength=\count283
+\Field@Width=\dimen176
+\Fld@charsize=\dimen177
 Package hyperref Info: Hyper figures OFF on input line 6042.
 Package hyperref Info: Link nesting OFF on input line 6047.
 Package hyperref Info: Hyper index ON on input line 6050.
@@ -273,9 +299,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count279
-\c@Item=\count280
-\c@Hfootnote=\count281
+\Hy@abspage=\count284
+\c@Item=\count285
+\c@Hfootnote=\count286
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
  (/usr/share/texmf-dist/tex/latex/hyperref/hpdftex.def
@@ -284,8 +310,8 @@ File: hpdftex.def 2023-02-07 v7.00v Hyperref driver for pdfTeX
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count282
-\c@bookmark@seq@number=\count283
+\Fld@listcount=\count287
+\c@bookmark@seq@number=\count288
  (/usr/share/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
  (/usr/share/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
@@ -293,103 +319,172 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip59
+\Hy@SectionHShift=\skip65
 )
 
 Package hyperref Warning: Option `pdftex' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 139.
 
 
 Package hyperref Warning: Option `pagebackref' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 139.
 
-Package hyperref Info: Option `pageanchor' set `true' on input line 136.
-Package hyperref Info: Option `plainpages' set `false' on input line 136.
-Package hyperref Info: Option `hypertexnames' set `false' on input line 136.
+Package hyperref Info: Option `pageanchor' set `true' on input line 139.
+Package hyperref Info: Option `plainpages' set `false' on input line 139.
+Package hyperref Info: Option `hypertexnames' set `false' on input line 139.
 
 Package hyperref Warning: Option `bookmarks' has already been used,
-(hyperref)                setting the option has no effect on input line 136.
+(hyperref)                setting the option has no effect on input line 139.
 
-Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 136.
-Package hyperref Info: Option `bookmarksopen' set `true' on input line 136.
-Package hyperref Info: Option `breaklinks' set `true' on input line 136.
-Package hyperref Info: Option `colorlinks' set `false' on input line 136.
-Package hyperref Info: Option `nesting' set `true' on input line 136.
-Package hyperref Info: Option `linktocpage' set `true' on input line 136.
-LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 142.
-(/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+Package hyperref Info: Option `bookmarksnumbered' set `false' on input line 139.
+Package hyperref Info: Option `bookmarksopen' set `true' on input line 139.
+Package hyperref Info: Option `breaklinks' set `true' on input line 139.
+Package hyperref Info: Option `colorlinks' set `false' on input line 139.
+Package hyperref Info: Option `nesting' set `true' on input line 139.
+Package hyperref Info: Option `linktocpage' set `true' on input line 139.
+(/usr/share/texmf-dist/tex/latex/tools/multicol.sty
+Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
+\c@tracingmulticols=\count289
+\mult@box=\box61
+\multicol@leftmargin=\dimen178
+\c@unbalance=\count290
+\c@collectmore=\count291
+\doublecol@number=\count292
+\multicoltolerance=\count293
+\multicolpretolerance=\count294
+\full@width=\dimen179
+\page@free=\dimen180
+\premulticols=\dimen181
+\postmulticols=\dimen182
+\multicolsep=\skip66
+\multicolbaselineskip=\skip67
+\partial@page=\box62
+\last@line=\box63
+\maxbalancingoverflow=\dimen183
+\mult@rightbox=\box64
+\mult@grightbox=\box65
+\mult@firstbox=\box66
+\mult@gfirstbox=\box67
+\@tempa=\box68
+\@tempa=\box69
+\@tempa=\box70
+\@tempa=\box71
+\@tempa=\box72
+\@tempa=\box73
+\@tempa=\box74
+\@tempa=\box75
+\@tempa=\box76
+\@tempa=\box77
+\@tempa=\box78
+\@tempa=\box79
+\@tempa=\box80
+\@tempa=\box81
+\@tempa=\box82
+\@tempa=\box83
+\@tempa=\box84
+\@tempa=\box85
+\@tempa=\box86
+\@tempa=\box87
+\@tempa=\box88
+\@tempa=\box89
+\@tempa=\box90
+\@tempa=\box91
+\@tempa=\box92
+\@tempa=\box93
+\@tempa=\box94
+\@tempa=\box95
+\@tempa=\box96
+\@tempa=\box97
+\@tempa=\box98
+\@tempa=\box99
+\@tempa=\box100
+\@tempa=\box101
+\@tempa=\box102
+\@tempa=\box103
+\c@minrows=\count295
+\c@columnbadness=\count296
+\c@finalcolumnbadness=\count297
+\last@try=\dimen184
+\multicolovershoot=\dimen185
+\multicolundershoot=\dimen186
+\mult@nat@firstbox=\box104
+\colbreak@box=\box105
+\mc@col@check@num=\count298
+)
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 147.
+ (/usr/share/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
 ) (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2023-01-16 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count284
-\l__pdf_internal_box=\box59
+\l__color_backend_stack_int=\count299
+\l__pdf_internal_box=\box106
 ) (./template.aux)
 \openout1 = `template.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 142.
-LaTeX Font Info:    ... okay on input line 142.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 147.
+LaTeX Font Info:    ... okay on input line 147.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count285
-\scratchdimen=\dimen176
-\scratchbox=\box60
-\nofMPsegments=\count286
-\nofMParguments=\count287
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count288
-\MPscratchDim=\dimen177
-\MPnumerator=\count289
-\makeMPintoPDFobject=\count290
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count300
+\scratchdimen=\dimen187
+\scratchbox=\box107
+\nofMPsegments=\count301
+\nofMParguments=\count302
+\everyMPshowfont=\toks24
+\MPscratchCnt=\count303
+\MPscratchDim=\dimen188
+\MPnumerator=\count304
+\makeMPintoPDFobject=\count305
+\everyMPtoPDFconversion=\toks25
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-LaTeX Info: Redefining \microtypecontext on input line 142.
-Package microtype Info: Applying patch `item' on input line 142.
-Package microtype Info: Applying patch `toc' on input line 142.
-Package microtype Info: Applying patch `eqnum' on input line 142.
-Package microtype Info: Applying patch `footnote' on input line 142.
-Package microtype Info: Applying patch `verbatim' on input line 142.
+LaTeX Info: Redefining \microtypecontext on input line 147.
+Package microtype Info: Applying patch `item' on input line 147.
+Package microtype Info: Applying patch `toc' on input line 147.
+Package microtype Info: Applying patch `eqnum' on input line 147.
+Package microtype Info: Applying patch `footnote' on input line 147.
+Package microtype Info: Applying patch `verbatim' on input line 147.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 142.
+LaTeX Info: Redefining \showhyphens on input line 147.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
  (/usr/share/texmf-dist/tex/latex/microtype/mt-ptm.cfg
 File: mt-ptm.cfg 2006/04/20 v1.7 microtype config. file: Times (RS)
 )
-\big@size=\dimen178
-\big@size=\dimen179
-Package hyperref Info: Link coloring OFF on input line 142.
+\big@size=\dimen189
+\big@size=\dimen190
+Package hyperref Info: Link coloring OFF on input line 147.
  (./template.out) (./template.out)
 \@outlinefile=\write3
 \openout3 = `template.out'.
 
-LaTeX Font Info:    Trying to load font information for OT1+phv on input line 151.
+LaTeX Font Info:    Trying to load font information for OT1+phv on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1phv.fd
 File: ot1phv.fd 2020/03/25 scalable font definitions for OT1/phv.
 )
@@ -397,31 +492,31 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `phv' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 151.
+LaTeX Font Info:    Trying to load font information for OT1+ppl on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1ppl.fd
 File: ot1ppl.fd 2001/06/04 font definitions for OT1/ppl.
 ) (/usr/share/texmf-dist/tex/latex/microtype/mt-ppl.cfg
 File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 )
-LaTeX Font Info:    Trying to load font information for OML+zplm on input line 151.
+LaTeX Font Info:    Trying to load font information for OML+zplm on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/omlzplm.fd
 File: omlzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OML/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 151.
+LaTeX Font Info:    Trying to load font information for OMS+zplm on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/omszplm.fd
 File: omszplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMS/zplm.
 )
-LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 151.
+LaTeX Font Info:    Trying to load font information for OMX+zplm on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/omxzplm.fd
 File: omxzplm.fd 2002/09/08 Fontinst v1.914 font definitions for OMX/zplm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
-LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
+LaTeX Font Info:    Trying to load font information for OT1+zplm on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/ot1zplm.fd
 File: ot1zplm.fd 2002/09/08 Fontinst v1.914 font definitions for OT1/zplm.
 )
@@ -429,29 +524,29 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `zplm' (encoding: OT1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-\abstractwidth=\skip60
-<../imgs/overall.png, id=84, 1927.2pt x 956.57375pt>
+\abstractwidth=\skip68
+<../imgs/overall.png, id=120, 1927.2pt x 956.57375pt>
 File: ../imgs/overall.png Graphic file (type png)
 <use ../imgs/overall.png>
-Package pdftex.def Info: ../imgs/overall.png  used on input line 151.
+Package pdftex.def Info: ../imgs/overall.png  used on input line 156.
 (pdftex.def)             Requested size: 467.22528pt x 231.90317pt.
-<diamondrule.pdf, id=86, 213.79875pt x 12.045pt>
+<diamondrule.pdf, id=122, 213.79875pt x 12.045pt>
 File: diamondrule.pdf Graphic file (type pdf)
 <use diamondrule.pdf>
-Package pdftex.def Info: diamondrule.pdf  used on input line 151.
+Package pdftex.def Info: diamondrule.pdf  used on input line 156.
 (pdftex.def)             Requested size: 213.79822pt x 12.04495pt.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <8> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 151.
-LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 151.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 156.
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 156.
  (/usr/share/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 )
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 162.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 167.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 162.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 167.
 
 Overfull \vbox (2.32803pt too high) has occurred while \output is active []
 
@@ -459,32 +554,72 @@ Overfull \vbox (2.32803pt too high) has occurred while \output is active []
 
 
  <../imgs/overall.png> <./diamondrule.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 234--235
+Underfull \hbox (badness 10000) in paragraph at lines 239--240
 []\OT1/ptm/m/n/9 (+20) where $\OML/zplm/m/it/9 ^^V \OT1/zplm/m/n/9 = \OML/zplm/m/it/9 K\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X\OT1/ppl/m/n/9 , \OML/zplm/m/it/9 X\OT1/zplm/m/n/9 )\OML/zplm/m/it/9 K\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X\OT1/ppl/m/n/9 , \OML/zplm/m/it/9 X\OT1/zplm/m/n/9 )[]\OML/zplm/m/it/9 y$ \OT1/ptm/m/n/9 (+20) and $\OT1/zplm/m/n/9 ^^F = \OML/zplm/m/it/9 K\OT1/zplm/m/n/9 (\OML/zplm/m/it/9 X\OT1/ppl/m/n/9 , \OML/zplm/m/it/9 X\OT1/zplm/m/n/9 ) \OMS/zplm/m/n/9 ^^@
  []
 
 [2]
 Overfull \vbox (2.32803pt too high) has occurred while \output is active []
 
- [3] (./template.bbl) [4
+ [3]
+<../imgs/observing.png, id=174, 908.39375pt x 655.44875pt>
+File: ../imgs/observing.png Graphic file (type png)
+<use ../imgs/observing.png>
+Package pdftex.def Info: ../imgs/observing.png  used on input line 329.
+(pdftex.def)             Requested size: 102.98317pt x 74.29987pt.
+<../imgs/observed.png, id=175, 913.4125pt x 684.5575pt>
+File: ../imgs/observed.png Graphic file (type png)
+<use ../imgs/observed.png>
+Package pdftex.def Info: ../imgs/observed.png  used on input line 330.
+(pdftex.def)             Requested size: 97.83676pt x 73.31691pt.
+<../imgs/kernel-1.png, id=176, 488.82625pt x 654.445pt>
+File: ../imgs/kernel-1.png Graphic file (type png)
+<use ../imgs/kernel-1.png>
+Package pdftex.def Info: ../imgs/kernel-1.png  used on input line 355.
+(pdftex.def)             Requested size: 102.98317pt x 137.8669pt.
+<../imgs/kernel-2.png, id=177, 486.81876pt x 722.7pt>
+File: ../imgs/kernel-2.png Graphic file (type png)
+<use ../imgs/kernel-2.png>
+Package pdftex.def Info: ../imgs/kernel-2.png  used on input line 356.
+(pdftex.def)             Requested size: 92.6825pt x 137.5901pt.
+<../imgs/simulation.png, id=178, 482.80376pt x 638.385pt>
+File: ../imgs/simulation.png Graphic file (type png)
+<use ../imgs/simulation.png>
+Package pdftex.def Info: ../imgs/simulation.png  used on input line 377.
+(pdftex.def)             Requested size: 154.47868pt x 204.25813pt.
+LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 401.
+ (/usr/share/texmf-dist/tex/latex/txfonts/ot1txtt.fd
+File: ot1txtt.fd 2000/12/15 v3.1
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `txtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
 
-] (./template.aux)
+Underfull \hbox (badness 1303) in paragraph at lines 401--402
+\OT1/ptm/m/n/9 (+20) Tool can be found on GitHub. The tool can be run lo-cally
+ []
+
+[4 <../imgs/observing.png> <../imgs/observed.png> <../imgs/kernel-1.png> <../imgs/kernel-2.png> <../imgs/simulation.png>] (./template.bbl)
+Overfull \vbox (2.32803pt too high) has occurred while \output is active []
+
+ [5] (./template.aux)
 Package rerunfilecheck Info: File `template.out' has not changed.
-(rerunfilecheck)             Checksum: 518D09669CEBDE760FFC364CAFED7493;3993.
+(rerunfilecheck)             Checksum: 7932E1E17EBB5D67A8ACA346C01E7882;5333.
  ) 
 Here is how much of TeX's memory you used:
- 12458 strings out of 476025
- 195456 string characters out of 5796532
+ 12959 strings out of 476025
+ 203540 string characters out of 5796532
  1877388 words of memory out of 5000000
- 32372 multiletter control sequences out of 15000+600000
- 571711 words of font info for 302 fonts, out of 8000000 for 9000
+ 32813 multiletter control sequences out of 15000+600000
+ 572843 words of font info for 318 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,8n,76p,1057b,529s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (4 pages, 254067 bytes).
+ 76i,8n,76p,1057b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on template.pdf (5 pages, 373243 bytes).
 PDF statistics:
- 209 PDF objects out of 1000 (max. 8388607)
- 174 compressed objects within 2 object streams
- 42 named destinations out of 1000 (max. 500000)
- 85163 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 273 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 55 named destinations out of 1000 (max. 500000)
+ 85772 words of extra memory for PDF output out of 89155 (max. 10000000)
 

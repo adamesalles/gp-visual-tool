@@ -515,7 +515,7 @@
     </div>
 
     <div class="description">
-      By Eduardo Adame. Powered with D3.js, Svelte and (G)PyTorch.
+      By Eduardo Adame. Powered with D3.js, Svelte and (G)PyTorch. Check out the paper <a href="https://github.com/adamesalles/gp-visual-tool/blob/main/paper.pdf">here</a>.
     </div>
   </div>
 </main>

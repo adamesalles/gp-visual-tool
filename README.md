@@ -1,6 +1,6 @@
 # Gaussian Processes Visual Tool
 
-Powered by (G)PyTorch, Flask, D3.js and Svelte.
+Powered by (G)PyTorch, Flask, D3.js and Svelte. Check the [related paper](https://github.com/adamesalles/gp-visual-tool/blob/main/paper.pdf) for more information.
 
 By Eduardo Adame
 
@@ -30,3 +30,5 @@ pip install -r requirements.txt
 2. Keep the server running: `cd gp/ && python server.py`
 3. Run the client: `cd ../web/ && npm run dev`
 
+
+Code is now kinda messy, but I'll try to clean it up soon. I'm also planning to add more features, like the possibility to change the kernel, the likelihood, the optimizer, etc.

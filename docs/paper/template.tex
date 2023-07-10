@@ -80,6 +80,9 @@
 \let\temp\rmdefault
 \usepackage{mathpazo}
 \let\rmdefault\temp
+
+\usepackage{float}
+\usepackage{subfigure}
 \input{../presentation/commands}
 
 %% Paper title.
@@ -101,12 +104,12 @@
 
 %% Abstract section.
 \abstract{
-  This work aims to develop a visual tool to help users to understand Gaussian Processes (GPs) and their applications - as well as actually using it to solve a problem. The tool is based on the D3.js and Pytorch. Gaussian processes are a common tool in machine learning and statistics, but they are not widely used in the industry. This is due to the fact that they are not as easy to use as other machine learning models, such as neural networks. A possible approach is to help users to understand the model and its applications, so they can use it in their own problems.
+  This paper presents the Gaussian Processes Visual Tool, an interactive tool for visualizing Gaussian Processes (GPs). The tool combines the power of Svelte, D3.js, Flask, and GPyTorch to provide a flexible and user-friendly interface. With the Gaussian Processes Visual Tool, users can visualize and understand GPs, make observations, and explore various kernel functions. The tool offers simulation options, allowing users to set axis parameters, likelihood variance, and even upload custom datasets. It stands out for its aesthetic design, comprehensive functionalities, and the integration of multiple important technologies. The Gaussian Processes Visual Tool fills a gap by offering a beautiful and useful tool that combines all essential GP functions in one place. The tool is publicly available on GitHub, enabling researchers and practitioners to employ it for GP visualization, experimentation, and education.
 } % end of abstract
 
 %% Keywords that describe your work. Will show as 'Index Terms' in journal
 %% please capitalize first letter and insert punctuation after last keyword
-\keywords{Gaussian processes, Bayesian statistics, Computational statistics, Interactive visualization, D3.js, PyTorch}
+\keywords{ Gaussian Processes, visualization, interactive tool, Svelte, D3.js, Flask, GPyTorch, regression.}
 
 %% ACM Computing Classification System (CCS). 
 %% See <http://www.acm.org/class/1998/> for details.
@@ -138,6 +141,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%% START OF THE PAPER %%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\usepackage{multicol}
 
 \begin{document}
 
@@ -312,10 +317,125 @@ In~\cite{smlbook}, on the other hand, the authors produce something really simil
 And, of course, it would be really worth to cite~\cite{gpguide} as one of the most complete guides on Gaussian Processes. Again, like we saw on the previous paper, it does not provide an actual tool.
 
 \section{Features and Functionality}
+ 
+In this section we are going to describe the features and functionality of the Gaussian Processes Visual Tool. We will describe the main features and the main functionalities of the tool.
+
+\subsection{Interactively create new data points}
+
+The user can interactively create new data points by clicking on the chart. The tool will automatically update the model and the chart to reflect the new data point. The user can also remove data points by clicking on them.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.2\textwidth]{../imgs/observing.png}
+  \includegraphics[width=0.19\textwidth]{../imgs/observed.png}
+  \caption{Sampling from the GP.}
+\end{figure}
+
+Also, when you hover any vertical line, you can see the marginal distribution of the $x$ point.
+
+\subsection{Choose between kernels}
+
+The user can choose between different kernels to model the data. The tool supports the following kernels:
+
+\begin{multicols}{2}
+
+\begin{itemize}
+  \item RBF
+  \item Matern 5/2
+  \item Matern 3/2
+  \item Periodic
+  \item Linear
+  \item Cosine
+\end{itemize}
+
+\end{multicols}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.20\textwidth]{../imgs/kernel-1.png}
+  \includegraphics[width=0.18\textwidth]{../imgs/kernel-2.png}
+  \caption{Changing kernels.}
+\end{figure}
+
+The user can also choose the kernel hyperparameters as well as the noise variance. There is a button to optimizing the hyperparameters using the marginal likelihood.
+
+\subsection{Setting custom configurations to the GP}
+
+The user can set custom configurations to the GP. The tool supports the following configurations:
+
+\begin{multicols}{2}
+  \begin{itemize}
+    \item Number of inducing points
+    \item Starting and ending $x$ values
+    \item Likelihood variance
+    \item Uploading your own data
+  \end{itemize}
+\end{multicols}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=0.30\textwidth]{../imgs/simulation.png}
+  \caption{Simulation options}
+\end{figure}
+
+When uploading your data, it must be a CSV file with two columns: $x$ and $y$.
 
 \section{Implementation Details}
 
-\section{User Interface and User Experience}
+In this section we are going to describe the implementation details of the Gaussian Processes Visual Tool. We will describe the main components of the tool and how they interact with each other.
+
+\subsection{Frontend}
+
+The frontend is built using Svelte and D3.js. Svelte is a JavaScript framework for building user interfaces. It provides a simple and intuitive way to create reactive components and manage state. D3.js is a JavaScript library for data visualization. It provides a wide range of tools for creating interactive charts and visualizations. The frontend is responsible for rendering the user interface and handling user interactions. It communicates with the backend to retrieve data and model updates.
+
+\subsection{Backend}
+
+The backend is built using Flask, a Python web framework. Flask provides a simple and flexible way to create web applications. The backend is responsible for handling data preprocessing, model training, and the flow of information between the frontend and backend components. It communicates with the frontend to receive user interactions and model updates. It also communicates with GPyTorch to train the GP model and make predictions. The data is sent from and to the frontend in JSON format by HTTP requests.
+
+\subsection{GPyTorch}
+
+GPyTorch is a Gaussian Process library for PyTorch. It provides a wide range of GP models and inference methods. It also provides a flexible and efficient way to define custom GP models. The Gaussian Processes Visual Tool uses GPyTorch to train the GP model and make predictions. It also uses GPyTorch to compute the marginal likelihood and optimize the kernel hyperparameters.
+
+\subsection{Running the tool}
+
+All code and documentation for the Gaussian Processes Visual Tool can be found on GitHub. The tool can be run locally by cloning the repository \url{https://github.com/adamesalles/gp-visual-tool}. There are some problems on deploying it online, but soon it will be available in a website.
+
+\subsection{User Interface and User Experience}
+
+Everything was meant to be simple and intuitive. The user interface is clean and easy to use. All values are set by sliders and the user can see the changes in real time. Some buttons are available to make the user experience even better. All styles are based on good practices and the user can easily understand what is happening. And, of course, you don't have to scroll to see everything.
+
+\section{Conclusion}
+In this paper, we introduced the Gaussian Processes Visual Tool, an interactive and flexible tool for visualizing Gaussian Processes (GPs). Leveraging the capabilities of Svelte, D3.js, Flask, and GPyTorch, the tool offers a user-friendly interface that can be adapted to various use cases. With its comprehensive set of functionalities, the tool empowers users to explore, understand, and teach GPs effectively.
+
+The Gaussian Processes Visual Tool provides a seamless and interactive visualization experience for GPs. By leveraging the power of Svelte and D3.js, users can intuitively interact with the visualizations, make observations, and witness real-time updates of the posterior distribution and model predictions. This dynamic interaction enhances users' understanding of how observations impact the model and allows them to gain insights into the underlying patterns and uncertainties.
+
+Furthermore, the tool serves as an educational resource, enabling users to teach and demonstrate the advantages of GPs over traditional regression methods. By providing a visual representation of GPs, users can showcase the non-parametric nature of GPs, their ability to capture complex relationships, and their probabilistic nature, which provides uncertainty estimates for predictions.
+
+The Gaussian Processes Visual Tool is available on GitHub, providing an open-source platform that can be run locally. Its flexibility allows users to adapt it to their specific needs and datasets, facilitating research, experimentation, and practical applications of GPs. The availability of the tool on a popular open-source platform ensures its accessibility and fosters collaboration among researchers and practitioners.
+
+In conclusion, the Gaussian Processes Visual Tool offers an intuitive and interactive solution for visualizing and understanding GPs. With its powerful visualization capabilities, educational potential, and adaptability, the tool contributes to the advancement and wider adoption of Gaussian Processes in various domains. We encourage researchers and practitioners to explore and leverage the tool to unlock the potential of GPs and gain deeper insights into complex data.
+
+
+\subsection{Future work}
+
+By addressing the following future work aspects, the Gaussian Processes Visual Tool can further expand its capabilities, flexibility, and usability, empowering users to explore and analyze GP models more comprehensively.
+
+\begin{itemize}
+  \item \textbf{Add more visualizations -} Currently, the Gaussian Processes Visual Tool provides visualizations of the posterior distribution and model predictions. In future work, additional visualizations can be incorporated, such as a heatmap of the covariance matrix. This visualization would provide insights into the correlations between different input variables, helping users understand the relationships within the data and their impact on the GP model.
+
+  \item \textbf{Add more kernels -} The tool currently supports a range of kernel functions for GP modeling. To enhance its flexibility and modeling capabilities, future work can focus on expanding the selection of kernels. This would allow users to explore different modeling assumptions and capture a wider range of patterns and structures in the data.
+  
+  \item \textbf{Include export options -} To facilitate the use of the tool and enable further analysis, future work can incorporate export options. Users could have the ability to export visualizations, model parameters, and results in various formats, such as images, CSV files, or other common data formats. This would enable users to save and share their findings, integrate them into reports or presentations, or further analyze the results using external tools.
+
+  \item \textbf{Make it run on GPU by default -} GP inference can be computationally demanding, especially for large datasets. To improve the tool's performance, future work can explore the option of running the computations on a GPU by default. Leveraging the parallel processing capabilities of GPUs would significantly accelerate the inference process, allowing users to work with larger datasets and complex models more efficiently.
+  
+  \item \textbf{Deploy it to a server -} Currently, the tool is available for local use. Future work can involve deploying the Gaussian Processes Visual Tool to a server, making it accessible via a web interface. This would enable users to access the tool remotely, collaborate with others, and utilize its functionalities without the need for local installation. Server deployment would also facilitate continuous updates and improvements to the tool.
+
+  \item \textbf{Add math explanations to the tool -} To enhance user understanding, future work can focus on incorporating math explanations directly into the tool. This could involve providing tooltips or annotations that explain the mathematical concepts and formulas used in Gaussian Processes. By providing contextual explanations within the tool, users would gain a deeper understanding of the underlying principles and assumptions.
+
+  \item \textbf{ Operations between kernels -} Gaussian Processes allow for combining and manipulating different kernel functions to create more complex models. Future work can explore the addition of operations between kernels within the tool. Users could have the ability to perform operations such as addition, multiplication, or composition of kernels, enabling them to create custom kernels that capture specific relationships and structures in the data.
+\end{itemize}
+
 
 
 %% if specified like this the section will be committed in review mode
