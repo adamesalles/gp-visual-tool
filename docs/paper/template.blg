@@ -1,0 +1,53 @@
+This is BibTeX, Version 0.99d (TeX Live 2023/Arch Linux)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: template.aux
+The style file: unsrt.bst
+Database file #1: template.bib
+Warning--entry type for "d3js" isn't style-file defined
+--line 1 of file template.bib
+Warning--entry type for "svelte" isn't style-file defined
+--line 8 of file template.bib
+Warning--entry type for "flask" isn't style-file defined
+--line 16 of file template.bib
+You've used 9 entries,
+            1791 wiz_defined-function locations,
+            488 strings with 4885 characters,
+and the built_in function-call counts, 1774 in all, are:
+= -- 135
+> -- 102
+< -- 1
++ -- 38
+- -- 29
+* -- 90
+:= -- 286
+add.period$ -- 24
+call.type$ -- 9
+change.case$ -- 7
+chr.to.int$ -- 0
+cite$ -- 9
+duplicate$ -- 80
+empty$ -- 181
+format.name$ -- 29
+if$ -- 396
+int.to.chr$ -- 0
+int.to.str$ -- 9
+missing$ -- 6
+newline$ -- 45
+num.names$ -- 9
+pop$ -- 45
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 47
+stack$ -- 0
+substring$ -- 62
+swap$ -- 22
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 14
+width$ -- 10
+write$ -- 87
+(There were 3 warnings)

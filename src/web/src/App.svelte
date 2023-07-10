@@ -1,6 +1,5 @@
 <script lang="ts">
   import Katex from 'svelte-katex';
-  import type { Matrix } from "ml-matrix";
   import { mu, upper, lower, covariance_matrix } from "./stores.ts";
   import * as d3 from "d3";
   import { onMount } from "svelte";
@@ -18,17 +17,22 @@
       switch (this.name) {
         case "RBF":
           if (this.params.length == 0) {
-            this.params = [1, 1];
+            this.params = [1, .15];
           }
           break;
-        case "Matern":
+        case "Matern 5/2":
           if (this.params.length == 0) {
-            this.params = [1, 1, 1];
+            this.params = [1, .15, 2.5];
+          }
+          break;
+        case "Matern 3/2":
+          if (this.params.length == 0) {
+            this.params = [1, .15, 1.5];
           }
           break;
         case "Periodic":
           if (this.params.length == 0) {
-            this.params = [1, 1, 1];
+            this.params = [1, .15, .4];
           }
           break;
         case "Linear":
@@ -52,7 +56,9 @@
       switch (this.name) {
         case "RBF":
           return `k(x, x') = ${this.params[0]}^2 \\exp \\left( -\\frac{1}{2} \\frac{(x - x')^2}{${this.params[1]}^2} \\right)`;
-        case "Matern":
+        case "Matern 5/2":
+          return `k(x, x') = \\frac{2^{1 - \\nu}}{\\Gamma(\\nu)} \\left( \\sqrt{2 \\nu} \\frac{|x - x'|}{${this.params[1]}} \\right)^\\nu K_\\nu \\left( \\sqrt{2 \\nu} \\frac{|x - x'|}{${this.params[1]}} \\right)`;
+        case "Matern 3/2":
           return `k(x, x') = \\frac{2^{1 - \\nu}}{\\Gamma(\\nu)} \\left( \\sqrt{2 \\nu} \\frac{|x - x'|}{${this.params[1]}} \\right)^\\nu K_\\nu \\left( \\sqrt{2 \\nu} \\frac{|x - x'|}{${this.params[1]}} \\right)`;
         case "Periodic":
           return `k(x, x') = ${this.params[0]}^2 \\exp \\left( -2 \\frac{\\sin^2(\\pi |x - x'| / ${this.params[1]})}{${this.params[2]}^2} \\right)`;
@@ -69,8 +75,10 @@
       switch (this.name) {
         case "RBF":
           return ["\\sigma", "l"];
-        case "Matern":
-          return ["\\sigma", "l", "ν"];
+        case "Matern 5/2":
+          return ["\\sigma", "l"];
+        case "Matern 3/2":
+          return ["\\sigma", "l"];
         case "Periodic":
           return ["\\sigma", "l", "p"];
         case "Linear":
@@ -90,7 +98,7 @@
   let amount_test_points = 1000;
   $: x_test = linspace(x_test_start, x_test_end, amount_test_points);
   let sigma = 0.1;
-  let kernel = new Kernel("RBF", [1, 1]);
+  let kernel = new Kernel("RBF", []);
 
   let width;
   let height;
@@ -148,7 +156,7 @@
     .range([0, width]);
   $: yScalePosterior = d3
     .scaleLinear()
-    .domain([Math.min(...$lower) - 1, Math.max(...$upper) + 1])
+    .domain([Math.min(Math.min(...$lower), Math.min(...y_train)) -1, Math.max(Math.max(...$upper), Math.max(...y_train)) + 1])
     .range([height, 0]);
 
   $: {
@@ -323,6 +331,22 @@
   function changeKernelByName(name: string) {
     kernel = new Kernel(name, []);
   }
+
+  function getOptimalParameters() {
+    return fetch("http://localhost:5000/api/optimal_params", {
+      method: "POST",
+      body: JSON.stringify({
+        x_train,
+        y_train,
+        kernel: kernel.name,
+      }),
+    })
+      .then((res) => res.json())
+      .then((res) => {
+        kernel.params = res.params;
+        return res.params;
+      });
+  }
 </script>
 
 <svelte:head>
@@ -332,6 +356,7 @@
     integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"
     crossorigin="anonymous"
   />
+  <title>Gaussian Processes Visual Tool</title>
 </svelte:head>
 
 <main>
@@ -356,10 +381,12 @@
         on:click={(event) => changeKernelByName(event.target.value)}
       >
         <option value="RBF">RBF</option>
-        <!-- <option value="Matern">Matern</option> -->
+        <option value="Matern 5/2">Matern 5/2</option>
+        <option value="Matern 3/2">Matern 3/2</option>
         <option value="Periodic">Periodic</option>
         <option value="Linear">Linear</option>
-        <option value="Polynomial">Polynomial</option>
+        <!-- <option value="Polynomial">Polynomial</option> -->
+        <option value="Cosine">Cosine</option>
       </select>
 
       <!-- Show math -->
@@ -370,6 +397,7 @@
       <!-- Input to kernel parameters -->
       <div id="kernel-params">
         {#each kernel.params as param, i}
+        {#if kernel.params_names[i]}
           <label for="param{i}"><Katex>{kernel.params_names[i]}</Katex>: {param}</label>
           <input
             type="range"
@@ -382,12 +410,23 @@
             max="5"
             step="0.01"
           />
+        {/if}
         {/each}
       </div>
       <button
         on:click={() => {
           kernel = new Kernel(kernel.name, kernel.params);
         }}>Force Kernel Update</button
+      >
+
+      <!-- Button to optimize hyperparams-->
+      <label for="optimize">Optimize hyperparameters</label>
+
+      <button
+        id="optimize"
+        on:click={() => {
+          getOptimalParameters();
+        }}>Optimize</button
       >
 
       
@@ -468,6 +507,11 @@
           reader.readAsText(file);
         }}
       />
+
+      
+
+      
+
     </div>
 
     <div class="description">

@@ -1,0 +1,45 @@
+\begin{thebibliography}{1}
+
+\bibitem{rasmussen2006gaussian}
+Carl~Edward Rasmussen.
+\newblock Gaussian processes for machine learning.
+\newblock {\em International Journal of Neural Systems}, 16(02):69--106, 2006.
+
+\bibitem{d3js}
+{Mike Bostock} et~al.
+\newblock D3.js - data-driven documents, 2010.
+
+\bibitem{svelte}
+{Rich Harris} et~al.
+\newblock Svelte - cybernetically enhanced web apps, 2016.
+
+\bibitem{flask}
+Armin Ronacher.
+\newblock Flask - a python microframework, 2010.
+
+\bibitem{paszke2019pytorch}
+Adam Paszke, Sam Gross, Francisco Massa, Adam Lerer, James Bradbury, Gregory Chanan, Trevor Killeen, Zeming Lin, Natalia Gimelshein, Luca Antiga, et~al.
+\newblock Pytorch: An imperative style, high-performance deep learning library.
+\newblock In {\em Advances in Neural Information Processing Systems}, pages 8024--8035, 2019.
+
+\bibitem{gardner2018gpytorch}
+Jacob~R Gardner, Geoff Pleiss, Kilian~Q Weinberger, and David Bindel.
+\newblock Gpytorch: Blackbox matrix-matrix gaussian process inference with gpu acceleration.
+\newblock {\em arXiv preprint arXiv:1809.11165}, 2018.
+
+\bibitem{gortler2019a}
+Jochen Görtler, Rebecca Kehlbeck, and Oliver Deussen.
+\newblock A visual exploration of gaussian processes.
+\newblock {\em Distill}, 2019.
+\newblock https://distill.pub/2019/visual-exploration-gaussian-processes.
+
+\bibitem{smlbook}
+Andreas Lindholm, Niklas Wahlstr\"om, Fredrik Lindsten, and Thomas~B. Sch\"on.
+\newblock {\em Machine Learning - A First Course for Engineers and Scientists}.
+\newblock Cambridge University Press, 2022.
+
+\bibitem{gpguide}
+{M}ark van der~{W}ilk {M}arc~{P}eter {D}eisenroth, {Y}icheng~{L}uo.
+\newblock {\em A Practical Guide to Gaussian Processes}.
+
+\end{thebibliography}

@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.19)  6 JUL 2023 14:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.19)  9 JUL 2023 13:38
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/adame/Documents/git/gp-visual-tool/docs/main.tex
-(/home/adame/Documents/git/gp-visual-tool/docs/main.tex
+**/home/adame/Documents/git/gp-visual-tool/docs/presentation/main.tex
+(/home/adame/Documents/git/gp-visual-tool/docs/presentation/main.tex
 LaTeX2e <2022-11-01> patch level 1
 L3 programming layer <2023-02-22> (/usr/share/texmf-dist/tex/latex/beamer/beamer.cls
 Document Class: beamer 2023/02/20 v3.69 A class for typesetting presentations
@@ -894,10 +894,10 @@ Package pdftex.def Info: emap_logo.png  used on input line 91.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map} <./emap_logo.png>]
-<imgs/overall.png, id=39, 1922.18124pt x 965.6075pt>
-File: imgs/overall.png Graphic file (type png)
-<use imgs/overall.png>
-Package pdftex.def Info: imgs/overall.png  used on input line 112.
+<../imgs/overall.png, id=39, 1922.18124pt x 965.6075pt>
+File: ../imgs/overall.png Graphic file (type png)
+<use ../imgs/overall.png>
+Package pdftex.def Info: ../imgs/overall.png  used on input line 112.
 (pdftex.def)             Requested size: 194.34114pt x 97.62842pt.
 File: emap_logo.png Graphic file (type png)
 <use emap_logo.png>
@@ -909,7 +909,7 @@ Overfull \vbox (6.97234pt too high) detected at line 112
 
 [2
 
- <./imgs/overall.png>]
+ <../imgs/overall.png>]
 LaTeX Font Info:    Trying to load font information for U+msa on input line 125.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1000,15 +1000,15 @@ Package pdftex.def Info: emap_logo.png  used on input line 221.
  [10
 
 ]
-<imgs/observing.png, id=98, 908.39375pt x 655.44875pt>
-File: imgs/observing.png Graphic file (type png)
-<use imgs/observing.png>
-Package pdftex.def Info: imgs/observing.png  used on input line 234.
+<../imgs/observing.png, id=98, 908.39375pt x 655.44875pt>
+File: ../imgs/observing.png Graphic file (type png)
+<use ../imgs/observing.png>
+Package pdftex.def Info: ../imgs/observing.png  used on input line 234.
 (pdftex.def)             Requested size: 159.333pt x 114.96527pt.
-<imgs/observed.png, id=99, 913.4125pt x 684.5575pt>
-File: imgs/observed.png Graphic file (type png)
-<use imgs/observed.png>
-Package pdftex.def Info: imgs/observed.png  used on input line 234.
+<../imgs/observed.png, id=99, 913.4125pt x 684.5575pt>
+File: ../imgs/observed.png Graphic file (type png)
+<use ../imgs/observed.png>
+Package pdftex.def Info: ../imgs/observed.png  used on input line 234.
 (pdftex.def)             Requested size: 155.3518pt x 116.42546pt.
 File: emap_logo.png Graphic file (type png)
 <use emap_logo.png>
@@ -1016,16 +1016,16 @@ Package pdftex.def Info: emap_logo.png  used on input line 234.
 (pdftex.def)             Requested size: 73.32077pt x 31.31564pt.
  [11
 
- <./imgs/observing.png> <./imgs/observed.png>]
-<imgs/kernel-1.png, id=107, 487.8225pt x 557.08125pt>
-File: imgs/kernel-1.png Graphic file (type png)
-<use imgs/kernel-1.png>
-Package pdftex.def Info: imgs/kernel-1.png  used on input line 250.
+ <../imgs/observing.png> <../imgs/observed.png>]
+<../imgs/kernel-1.png, id=107, 487.8225pt x 557.08125pt>
+File: ../imgs/kernel-1.png Graphic file (type png)
+<use ../imgs/kernel-1.png>
+Package pdftex.def Info: ../imgs/kernel-1.png  used on input line 250.
 (pdftex.def)             Requested size: 119.50279pt x 136.46484pt.
-<imgs/kernel-2.png, id=108, 488.82625pt x 647.41875pt>
-File: imgs/kernel-2.png Graphic file (type png)
-<use imgs/kernel-2.png>
-Package pdftex.def Info: imgs/kernel-2.png  used on input line 250.
+<../imgs/kernel-2.png, id=108, 488.82625pt x 647.41875pt>
+File: ../imgs/kernel-2.png Graphic file (type png)
+<use ../imgs/kernel-2.png>
+Package pdftex.def Info: ../imgs/kernel-2.png  used on input line 250.
 (pdftex.def)             Requested size: 103.56584pt x 137.16716pt.
 File: emap_logo.png Graphic file (type png)
 <use emap_logo.png>
@@ -1033,11 +1033,11 @@ Package pdftex.def Info: emap_logo.png  used on input line 250.
 (pdftex.def)             Requested size: 73.32077pt x 31.31564pt.
  [12
 
- <./imgs/kernel-1.png> <./imgs/kernel-2.png>]
-<imgs/simulation.png, id=116, 482.80376pt x 638.385pt>
-File: imgs/simulation.png Graphic file (type png)
-<use imgs/simulation.png>
-Package pdftex.def Info: imgs/simulation.png  used on input line 266.
+ <../imgs/kernel-1.png> <../imgs/kernel-2.png>]
+<../imgs/simulation.png, id=116, 482.80376pt x 638.385pt>
+File: ../imgs/simulation.png Graphic file (type png)
+<use ../imgs/simulation.png>
+Package pdftex.def Info: ../imgs/simulation.png  used on input line 266.
 (pdftex.def)             Requested size: 119.50279pt x 158.00807pt.
 File: emap_logo.png Graphic file (type png)
 <use emap_logo.png>
@@ -1045,7 +1045,7 @@ Package pdftex.def Info: emap_logo.png  used on input line 266.
 (pdftex.def)             Requested size: 73.32077pt x 31.31564pt.
  [13
 
- <./imgs/simulation.png>]
+ <../imgs/simulation.png>]
 File: emap_logo.png Graphic file (type png)
 <use emap_logo.png>
 Package pdftex.def Info: emap_logo.png  used on input line 281.
@@ -1080,14 +1080,14 @@ Package rerunfilecheck Info: File `main.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  26435 strings out of 476025
- 506366 string characters out of 5796532
+ 506516 string characters out of 5796532
  1864388 words of memory out of 5000000
  46279 multiletter control sequences out of 15000+600000
  528344 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 128i,14n,122p,499b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 128i,14n,122p,512b,562s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texmf-dist/fonts/type1/public/doublestroke/dsrom10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfso1000.pfb>
-Output written on main.pdf (15 pages, 357482 bytes).
+Output written on main.pdf (15 pages, 357485 bytes).
 PDF statistics:
  214 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams
