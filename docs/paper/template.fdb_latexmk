@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex template"] 1688957039 "template.aux" "template.bbl" "template" 1688957039 0
+["bibtex template"] 1689211283 "template.aux" "template.bbl" "template" 1689212620 0
   "./template.bib" 1688950173 2223 20d274ad881616c06e4df3918ed98a1d ""
   "/usr/share/texmf-dist/bibtex/bst/base/unsrt.bst" 1680514707 18030 1376b4b231b50c66211e47e42eda2875 ""
-  "template.aux" 1688957039 5515 c1be1426a9a449e02b4d7f5f02899ecb "pdflatex"
+  "template.aux" 1689212619 5515 b184d997e194c33bc950fb141e766bdd "pdflatex"
   (generated)
   "template.bbl"
   "template.blg"
   (rewritten before read)
-["pdflatex"] 1688957039 "/home/adame/Documents/git/gp-visual-tool/docs/paper/template.tex" "template.pdf" "template" 1688957039 0
+["pdflatex"] 1689212619 "/home/adame/Documents/git/gp-visual-tool/docs/paper/template.tex" "template.pdf" "template" 1689212620 0
   "../imgs/kernel-1.png" 1688955683 33824 c9991eabadcc6ee6fbce374bde8e958b ""
   "../imgs/kernel-2.png" 1688955723 38870 e3735abf7f0b5a8164d9b59f1321af85 ""
   "../imgs/observed.png" 1688663118 23048 f867a41b2213099452fda538d11e960e ""
@@ -15,7 +15,7 @@
   "../imgs/overall.png" 1688955248 139159 0fffaa8932e387f43d11f7d1de774b62 ""
   "../imgs/simulation.png" 1688662139 36148 f626e5735b9a89ebeafced2b82a7b6fa ""
   "../presentation/commands.tex" 1688670506 2240 aa8ec25e5d816c2d1dd4ef2cf6b1033b ""
-  "/home/adame/Documents/git/gp-visual-tool/docs/paper/template.tex" 1688957038 36989 4e771fad09041b446b6f56c24506f2b1 ""
+  "/home/adame/Documents/git/gp-visual-tool/docs/paper/template.tex" 1689212619 39891 1b80ed9ea35eea148f94c90632953593 ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1680514707 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1680514707 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/helvetic/phvb7t.tfm" 1680514707 2240 eb56c13537f4d8a0bd3fafc25572b1bd ""
@@ -146,10 +146,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1684521647 4491781 539e3b5e308794ddb50e5f94f0e971f4 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1684521604 8204100 811ee4ddc29b768778820cc7fd866402 ""
   "diamondrule.pdf" 1688941116 1335 e82887b13e7469ef004fc36f59818f7a ""
-  "template.aux" 1688957039 5515 c1be1426a9a449e02b4d7f5f02899ecb "pdflatex"
-  "template.bbl" 1688957039 1710 e93f1c999ce368b540ab3633ac5ea38b "bibtex template"
-  "template.out" 1688957039 5333 7932e1e17ebb5d67a8aca346c01e7882 "pdflatex"
-  "template.tex" 1688957038 36989 4e771fad09041b446b6f56c24506f2b1 ""
+  "template.aux" 1689212619 5515 b184d997e194c33bc950fb141e766bdd "pdflatex"
+  "template.bbl" 1689211283 1710 e93f1c999ce368b540ab3633ac5ea38b "bibtex template"
+  "template.out" 1689212619 5333 7932e1e17ebb5d67a8aca346c01e7882 "pdflatex"
+  "template.tex" 1689212619 39891 1b80ed9ea35eea148f94c90632953593 ""
   "vgtc.cls" 1688941116 34010 661cd0511c1b7ca4c083156d8aba0140 ""
   (generated)
   "template.aux"

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.19)  9 JUL 2023 23:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Arch Linux) (preloaded format=pdflatex 2023.5.19)  12 JUL 2023 22:43
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -575,19 +575,23 @@ Package pdftex.def Info: ../imgs/observed.png  used on input line 330.
 <../imgs/kernel-1.png, id=176, 488.82625pt x 654.445pt>
 File: ../imgs/kernel-1.png Graphic file (type png)
 <use ../imgs/kernel-1.png>
-Package pdftex.def Info: ../imgs/kernel-1.png  used on input line 355.
+Package pdftex.def Info: ../imgs/kernel-1.png  used on input line 345.
 (pdftex.def)             Requested size: 102.98317pt x 137.8669pt.
 <../imgs/kernel-2.png, id=177, 486.81876pt x 722.7pt>
 File: ../imgs/kernel-2.png Graphic file (type png)
 <use ../imgs/kernel-2.png>
-Package pdftex.def Info: ../imgs/kernel-2.png  used on input line 356.
+Package pdftex.def Info: ../imgs/kernel-2.png  used on input line 346.
 (pdftex.def)             Requested size: 92.6825pt x 137.5901pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
 <../imgs/simulation.png, id=178, 482.80376pt x 638.385pt>
 File: ../imgs/simulation.png Graphic file (type png)
 <use ../imgs/simulation.png>
-Package pdftex.def Info: ../imgs/simulation.png  used on input line 377.
+Package pdftex.def Info: ../imgs/simulation.png  used on input line 364.
 (pdftex.def)             Requested size: 154.47868pt x 204.25813pt.
-LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 401.
+ [4 <../imgs/observing.png> <../imgs/observed.png> <../imgs/kernel-1.png> <../imgs/kernel-2.png> <../imgs/simulation.png>]
+LaTeX Font Info:    Trying to load font information for OT1+txtt on input line 391.
  (/usr/share/texmf-dist/tex/latex/txfonts/ot1txtt.fd
 File: ot1txtt.fd 2000/12/15 v3.1
 )
@@ -596,30 +600,32 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-Underfull \hbox (badness 1303) in paragraph at lines 401--402
+Underfull \hbox (badness 1303) in paragraph at lines 391--392
 \OT1/ptm/m/n/9 (+20) Tool can be found on GitHub. The tool can be run lo-cally
  []
 
-[4 <../imgs/observing.png> <../imgs/observed.png> <../imgs/kernel-1.png> <../imgs/kernel-2.png> <../imgs/simulation.png>] (./template.bbl)
+
 Overfull \vbox (2.32803pt too high) has occurred while \output is active []
 
- [5] (./template.aux)
+ [5] (./template.bbl) [6
+
+] (./template.aux)
 Package rerunfilecheck Info: File `template.out' has not changed.
 (rerunfilecheck)             Checksum: 7932E1E17EBB5D67A8ACA346C01E7882;5333.
  ) 
 Here is how much of TeX's memory you used:
- 12959 strings out of 476025
- 203540 string characters out of 5796532
+ 12966 strings out of 476025
+ 203600 string characters out of 5796532
  1877388 words of memory out of 5000000
  32813 multiletter control sequences out of 15000+600000
- 572843 words of font info for 318 fonts, out of 8000000 for 9000
+ 573078 words of font info for 322 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 76i,8n,76p,1057b,527s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 76i,8n,76p,1057b,539s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmr.pfb></usr/share/texmf-dist/fonts/type1/public/mathpazo/fplmri.pfb></usr/share/texmf-dist/fonts/type1/public/txfonts/txtt.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/palatino/uplri8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on template.pdf (5 pages, 373243 bytes).
+Output written on template.pdf (6 pages, 376752 bytes).
 PDF statistics:
- 273 PDF objects out of 1000 (max. 8388607)
- 224 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
+ 277 PDF objects out of 1000 (max. 8388607)
+ 227 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
  85772 words of extra memory for PDF output out of 89155 (max. 10000000)
 

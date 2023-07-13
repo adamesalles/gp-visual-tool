@@ -322,7 +322,7 @@ In this section we are going to describe the features and functionality of the G
 
 \subsection{Interactively create new data points}
 
-The user can interactively create new data points by clicking on the chart. The tool will automatically update the model and the chart to reflect the new data point. The user can also remove data points by clicking on them.
+The tool enables users to interactively create new data points by simply clicking on the chart. Upon adding a new data point, the tool automatically updates the underlying GP model and visualizations to reflect the inclusion of the new observation. Similarly, users can remove data points by clicking on them, facilitating the exploration and manipulation of the dataset within the tool.
 
 \begin{figure}[H]
   \centering
@@ -331,24 +331,14 @@ The user can interactively create new data points by clicking on the chart. The 
   \caption{Sampling from the GP.}
 \end{figure}
 
-Also, when you hover any vertical line, you can see the marginal distribution of the $x$ point.
+Additionally, the tool provides a useful feature that allows users to gain insights into the marginal distribution of a specific $x$ point. By hovering over any vertical line on the chart, users can access information about the corresponding marginal distribution. This feature enhances the understanding of individual data points and their uncertainty estimates, enabling users to assess the impact of specific inputs on the overall model predictions.
 
 \subsection{Choose between kernels}
 
-The user can choose between different kernels to model the data. The tool supports the following kernels:
+The Gaussian Processes Visual Tool offers users the flexibility to choose from a variety of kernels for modeling the data. The tool supports several commonly used kernels, including the Radial Basis Function (RBF), Matern 5/2, Matern 3/2, Periodic, Linear, and Cosine kernels. Users can select their preferred kernel from this list, allowing them to tailor the model's characteristics to the specific dataset and desired assumptions.
 
-\begin{multicols}{2}
+Furthermore, the tool enables users to customize the kernel hyperparameters and the noise variance. Users can specify the values of the kernel hyperparameters to control aspects such as the smoothness, periodicity, or linearity of the underlying function. Additionally, they can adjust the noise variance to account for the level of uncertainty or noise present in the data.
 
-\begin{itemize}
-  \item RBF
-  \item Matern 5/2
-  \item Matern 3/2
-  \item Periodic
-  \item Linear
-  \item Cosine
-\end{itemize}
-
-\end{multicols}
 
 \begin{figure}[H]
   \centering
@@ -357,20 +347,17 @@ The user can choose between different kernels to model the data. The tool suppor
   \caption{Changing kernels.}
 \end{figure}
 
-The user can also choose the kernel hyperparameters as well as the noise variance. There is a button to optimizing the hyperparameters using the marginal likelihood.
+To assist users in optimizing the kernel hyperparameters, the tool provides a dedicated button that initiates the optimization process using the marginal likelihood. This feature automatically searches for the optimal values of the hyperparameters based on the given dataset, enhancing the modeling accuracy and facilitating the model selection process.
 
 \subsection{Setting custom configurations to the GP}
 
-The user can set custom configurations to the GP. The tool supports the following configurations:
+The Gaussian Processes Visual Tool allows users to further customize the configurations of the GP model according to their specific requirements. The tool supports the following configurations:
 
-\begin{multicols}{2}
   \begin{itemize}
-    \item Number of inducing points
-    \item Starting and ending $x$ values
-    \item Likelihood variance
-    \item Uploading your own data
+    \item \textbf{Number of inducing points -} Users can specify the number of inducing points, which affects the granularity and complexity of the model. Adjusting this parameter allows users to control the trade-off between model accuracy and computational efficiency.
+    \item \textbf{Starting and ending $x$ values -} Users have the flexibility to define the range of $x$ values to be considered in the GP model. This feature enables users to focus on specific regions of interest within the dataset and tailor the model's predictions accordingly.
+    \item \textbf{Likelihood variance -} Users can set the likelihood variance, which represents the uncertainty or noise level in the observed data. Modifying this parameter helps capture the noise characteristics of the dataset and refine the model's predictions.
   \end{itemize}
-\end{multicols}
 
 \begin{figure}[H]
   \centering
@@ -378,7 +365,10 @@ The user can set custom configurations to the GP. The tool supports the followin
   \caption{Simulation options}
 \end{figure}
 
-When uploading your data, it must be a CSV file with two columns: $x$ and $y$.
+
+\begin{itemize}
+  \item \textbf{Uploading your own data -} The tool offers the convenience of uploading custom datasets. Users can upload their data in a CSV file format with two columns: $x$ and $y$. This capability allows users to work with their own data and explore the behavior of the GP model on real-world datasets.
+\end{itemize}
 
 \section{Implementation Details}
 
@@ -440,7 +430,11 @@ By addressing the following future work aspects, the Gaussian Processes Visual T
 
 %% if specified like this the section will be committed in review mode
 \acknowledgments{
-  The author would like to thank his advisor, Prof. Jorge Poco, for the support and guidance. Also, the author would like to thank his friends Caio Lins, Tulio Koneçny and Juan Belieni for the support and the discussions.
+  The author extends heartfelt gratitude to Luiz Max Fagundes de Carvalho, his advisor, for being an exceptional mentor and friend throughout his undergraduate studies. Luiz Max introduced the author to the world of Gaussian Processes and statistics, providing invaluable guidance and inspiration. 
+
+  Special thanks go to the author's friends Caio Lins, Tulio Koneçny, and Juan Belieni for their unwavering support and enriching discussions. Their contributions and encouragement have played a significant role in shaping the author's ideas and refining the Gaussian Processes Visual Tool.
+
+  The author would also like to express appreciation to Prof. Jorge Poco for the continuous support and insightful guidance as the lecturer of the Visual Data Analysis course. The author is grateful for the opportunity to work on the Gaussian Processes Visual Tool as part of this course.
 }
 
 \bibliographystyle{unsrt}

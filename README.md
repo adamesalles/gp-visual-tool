@@ -2,7 +2,9 @@
 
 Powered by (G)PyTorch, Flask, D3.js and Svelte. Check the [related paper](https://github.com/adamesalles/gp-visual-tool/blob/main/paper.pdf) for more information.
 
-By Eduardo Adame
+By Eduardo Adame.
+
+Special thanks to @juanbelieni for the help with the implementation of the Svelte app.
 
 ## Instructions
 
